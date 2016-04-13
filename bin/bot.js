@@ -86,7 +86,12 @@ bot.on('message', function(message) {
         console.log("namespace_command_args: " + util.inspect(namespace_command_args));
         console.log("\n");
 
-        commands.call(namespace, namespace_command_name, namespace_command_args, bot);
+	try {
+          commands.call(namespace, namespace_command_name, namespace_command_args, bot);
+        } catch (error) {
+          console.log(error)
+        }
+
      }
 });
 
